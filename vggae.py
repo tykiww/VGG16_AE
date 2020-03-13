@@ -32,14 +32,14 @@ def main():
                                 patience=3, min_lr=lr)
 
   # Train Auto Encoder
-  autoencoder.fit_generator(data_generator(data = train, batch_size=batch_n, noisy = True),
+  autoencoder.fit_generator(datagenerator(data = train, batch_size=batch_n, noisy = True),
                             steps_per_epoch=  int(len(train)/batch_n),
                             epochs=num_epochs,
                             verbose=1,
                             callbacks = [reduce_lr,
                                          set_pointer(origin=model_file)
                                          ],
-                            validation_data=data_generator(data = tests, batch_size=int(batch_n/2), noisy = False),
+                            validation_data=datagenerator(data = tests, batch_size=int(batch_n/2), noisy = False),
                             validation_steps=1) # .10692 is the threshold for a clear image.
     
     
