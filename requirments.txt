@@ -1,0 +1,7 @@
+
+tables
+sklearn
+tensorflow
+keras
+open-cv
+numpy
