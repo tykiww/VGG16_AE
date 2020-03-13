@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 import gc
 
 
-def retrieve_images(path = 'data/trending_images.h5')
+def retrieve_images(path = 'data/all_images.h5')
   h5_path = path
   hdf5_file = tables.open_file(h5_path, mode='r+')
   
