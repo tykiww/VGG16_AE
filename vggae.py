@@ -6,14 +6,15 @@ from utilities.data import retrieve_images
 from keras.callbacks import ReduceLROnPlateau
 
 
-def main():
+def main(inp_shape, num_epochs, batch_n, model_file,
+         opt, lr, loss_metric, display_summary):
   
   # Retrieve Images
   train, tests = retrieve_images()
   # Retrieve weights
   lf = latest_file(pathname = model_file)
   # Retrieve Model
-  vggae = VGGAE()
+  vggae = VGGAE(inp_shape)
   
   # Setup Model
   autoencoder.compile(optimizer=opt, loss=loss_metric)
@@ -44,7 +45,8 @@ def main():
     
     
 if __name__ == "__main__":
-  main(num_epochs = 200,
+  main(inp_shape = (256,256,3),
+       num_epochs = 200,
        batch_n = 32,
        model_file = 'logging/check/*',
        opt = 'adadelta',
