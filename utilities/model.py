@@ -52,8 +52,6 @@ def VGGAE(input_shape):
 
 
 
-
-
 def latest_file(pathname = 'logs/check/*'):
   list_of_files = glob.glob(pathname)
   if len(list_of_files) >= 1:
@@ -61,3 +59,7 @@ def latest_file(pathname = 'logs/check/*'):
     return latest_file
   else:
      return 0
+
+    
+def set_pointer(origin ='logs/check/',filepath="weights-improvement-{loss:.2f}.hdf5"):
+  return ModelCheckpoint(filepath = origin + filepath, verbose=1, save_best_only=True)
