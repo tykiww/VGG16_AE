@@ -4,6 +4,7 @@ from keras.layers import Input,Conv2D,MaxPooling2D,UpSampling2D,Flatten,Dense
 from keras.models import Model
 from keras.applications.vgg16 import VGG16
 
+import glob, os
 
 
 def VGGAE(input_shape):
@@ -53,3 +54,10 @@ def VGGAE(input_shape):
 
 
 
+def latest_file(pathname = 'logs/check/*'):
+  list_of_files = glob.glob(pathname)
+  if len(list_of_files) >= 1:
+    latest_file = max(list_of_files, key=os.path.getctime)
+    return latest_file
+  else:
+     return 0
