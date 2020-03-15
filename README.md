@@ -1,2 +1,4 @@
 # VGG16_AE
-Autoencoder Created from VGG16 using pre-trained imagenet weights.
+Denoising Autoencoder Created from VGG16 using pre-trained imagenet weights.
+Includes an image generator (256,256,3)
+
